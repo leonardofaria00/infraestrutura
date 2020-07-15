@@ -23,37 +23,26 @@
     "emmet.syntaxProfiles": {
         "javascript": "jsx"
     },
-
     // Controls auto save of dirty editors. Read more about autosave [here](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
     "files.autoSave": "afterDelay",
-
     // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
     "workbench.iconTheme": "vscode-icons",
-
     // Confirmar antes de sincronizar repositórios git.        
     "git.confirmSync": false,
-
     // Controla a família de fontes no console de depuração.
     "debug.console.fontFamily": "default",
-
     // Controla a família de fontes.
     "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    
     // Controla a altura da linha. Use 0 para computar a altura da linha a partir do tamanho da fonte.
     "editor.lineHeight": 0,
-   
     // Formatar um arquivo ao salvar. Um formatador deve estar disponível, o arquivo não pode ser salvo com atraso, e o editor não deve ser desligado.
     "editor.formatOnSave": false,
-   
     // Controla se o editor deve formatar automaticamente a linha depois de digitar.
     "editor.formatOnType": true,
-   
     // If true, will use single instead of double quotes
     "prettier.singleQuote": true,
-   
     // Controla se o editor deve formatar automaticamente o conteúdo colado. Um formatador deve estar disponível e o formatador deve ser capaz de Formatar um intervalo em um documento.
     "editor.formatOnPaste": true,
-
     // Quando ativado, o editor diff ignora alterações no espaço em branco à esquerda ou à direita.
     "diffEditor.ignoreTrimWhitespace": true,
     "vsicons.dontShowNewVersionMessage": true,
@@ -68,28 +57,38 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "html.format.enable": true,
     "typescript.format.enable": true,
     "php.validate.enable": true,
-    "php.validate.executablePath": "",  
-    "javascript.format.enable": true,    
+    "php.validate.executablePath": "",
+    "javascript.format.enable": true,
     "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
     "java.codeGeneration.generateComments": true,
     "java.dependency.autoRefresh": true,
     "java.autobuild.enabled": true,
     "java.format.enabled": true,
-
     // Enable/disable auto organize imports on save action
     "java.saveActions.organizeImports": true,
-
     // Enable/disable eager download of Maven source artifacts.
     "java.maven.downloadSources": false,
-    
     // Force update of Snapshots/Releases.
     "java.maven.updateSnapshots": true,
     "java.semanticHighlighting.enabled": true,
     "explorer.confirmDelete": false,
+    "shellformat.effectLanguages": [
+        "shellscript",
+        "dotenv",
+        "hosts",
+        "jvmoptions",
+        "ignore",
+        "gitignore",
+        "properties",
+        "spring-boot-properties",
+        "azcli"
+    ],
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }
