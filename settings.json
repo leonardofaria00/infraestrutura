@@ -1,7 +1,6 @@
 {
-    /**
-    Configurações do ambiente VSCode
-    */
+    // Configurações do ambiente VSCode
+    
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
