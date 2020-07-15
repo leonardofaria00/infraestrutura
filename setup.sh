@@ -28,7 +28,7 @@ sudo apt-get update
 echo ''
 echo '###### Instalando Ferramentas úteis !######'
 echo ''
-sudo apt install -y vim curl
+sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
 
 # Colorindo terminal
 sudo cp /etc/skel/.bashrc /home/$USER/
