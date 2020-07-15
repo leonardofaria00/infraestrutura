@@ -40,7 +40,7 @@ sudo apt -y update && apt -y upgrade
 
 echo ''
 echo '###### Instalando programas úteis !######'
-sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
+apt install -y sudo vim curl psensor gsmartcontrol gnome-tweaks
 
 # Colorindo terminal
 sudo cp /etc/skel/.bashrc /home/$USER/
@@ -70,7 +70,7 @@ echo '###### Instalando NPM, Nodejs e Angular/CLI !######'
 # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 sudo apt install -y npm
 npm -v
-# Using Ubuntu
+
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install -y nodejs
 node -v
