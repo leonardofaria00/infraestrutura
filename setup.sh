@@ -14,13 +14,6 @@
 #                                                                                 #
 ###################################################################################
 
-# Verificando versão do Sistema Operacional.
-echo ''
-echo '###### Sistema Operacional !######'
-echo ''
-lsb_release -a
-sleep 10s
-
 limpar (){
 echo ''
 echo '###### Limpando caches! ######'
@@ -37,6 +30,14 @@ echo ''
 sleep 2s
 clear
 }
+
+# Verificando versão do Sistema Operacional.
+echo ''
+echo '###### Sistema Operacional !######'
+echo ''
+lsb_release -a
+sleep 5s
+
 
 # Atualizando a máquina.
 sudo apt -y update && apt -y upgrade
@@ -155,11 +156,11 @@ sudo apt install -y composer
 composer --version
 sleep 5s
 
-echo ''
-echo '######Instalando MySQL!######'
-sudo apt -y remove mysql-server
-sudo apt install -y mysql-server
-sudo service mysql restart
+# echo ''
+# echo '######Instalando MySQL!######'
+# sudo apt -y remove mysql-server
+# sudo apt install -y mysql-server
+# sudo service mysql restart
 # sudo mysql_secure_installation
 # sudo mysql -u root
 # SELECT user FROM mysql.user;
@@ -167,15 +168,8 @@ sudo service mysql restart
 # GRANT ALL ON *.* TO 'leonardo'@'localhost';
 # FLUSH PRIVILEGES;
 # quit;
-sudo service mysql status
-sleep 5s
-
-echo ''
-echo '###### Instalado WorkBench !######'
-echo ''
-sudo apt install -y libpcrecpp0v5 libpython2.7 libzip5 libpython2.7-stdlib libpython2.7-minimal
-sudo apt install -y mysql-workbench
-sleep 5s
+# sudo service mysql status
+# sleep 5s
 
 # Limpando caches e reiniciando a máquina
 limpar
