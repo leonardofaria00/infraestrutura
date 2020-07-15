@@ -31,6 +31,7 @@ clear
 # Verificando versão do Sistema Operacional.
 echo ''
 echo '###### Sistema Operacional !######'
+echo ''
 lsb_release -a
 sleep 5s
 
