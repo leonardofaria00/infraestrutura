@@ -6,9 +6,8 @@
 # (61) 9 91728815                                                                 #
 # leonardofaria00@gmail.com                                                       #
 #                                                                                 #
-# Programas a serem instalados: JDK8, Apache2, PHP 7.3, Docker-ce, Kubernetes     #
-# docker-compose, composer, Git, Filezilla, Mysql-serve, Workbench, SQL Developer #
-# Google Chrome, NetBeans e outros programas                                      #
+# Programas a serem instalados: JDK8, Apache2, PHP 7.3, Docker                    #
+# docker-compose, composer, Git, Mysql-serve e outros programas                   #
 #                                                                                 #
 # Version: 1.0.1                                                                  #
 #                                                                                 #
@@ -17,7 +16,6 @@
 limpar (){
 echo ''
 echo '###### Limpando caches! ######'
-echo ''
 sudo apt -y autoremove
 sudo apt autoclean
 sudo apt remove
@@ -26,7 +24,6 @@ sudo rm -rf /var/lib/apt/lists/*
 sudo rm -rf /var/tmp/*
 echo ''
 echo 'Tudo limpo!'
-echo ''
 sleep 2s
 clear
 }
@@ -34,7 +31,6 @@ clear
 # Verificando versão do Sistema Operacional.
 echo ''
 echo '###### Sistema Operacional !######'
-echo ''
 lsb_release -a
 sleep 5s
 
@@ -44,7 +40,6 @@ sudo apt -y update && apt -y upgrade
 
 echo ''
 echo '###### Instalando programas úteis !######'
-echo ''
 sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
 
 # Colorindo terminal
@@ -55,7 +50,6 @@ sudo echo 'force_color_prompt=yes' >> /home/$USER/.bashrc
 
 echo ''
 echo '###### Instalado JDK8 !######'
-echo ''
 sudo apt install -y software-properties-common
 sudo add-apt-repository ppa:linuxuprising/java
 sudo apt install -y openjdk-8-jdk
@@ -73,7 +67,6 @@ sleep 5s
 
 echo ''
 echo '###### Instalando NPM, Nodejs e Angular/CLI !######'
-echo ''
 # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 sudo apt install -y npm
 npm -v
@@ -86,7 +79,6 @@ ng --version
 
 echo ''
 echo '###### Instalado Apache2 !######'
-echo ''
 sudo apt install -y apache2
 sudo chown $USER:$USER /var/www/ -R
 sudo service apache2 start
@@ -95,7 +87,6 @@ sleep 5s
 
 echo ''
 echo '###### Instalado PHP !######'
-echo ''
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
@@ -107,7 +98,6 @@ limpar
 
 echo ''
 echo '###### Instalado Git !######'
-echo ''
 sudo apt install -y git-all
 sudo groupadd git
 sudo usermod -aG git $USER
@@ -117,7 +107,6 @@ sleep 5s
 
 echo ''
 echo '###### Instalado Docker !######'
-echo ''
 sudo apt remove docker docker-engine docker.io containerd runc
 sudo rm -rf /var/lib/docker
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -139,19 +128,14 @@ sleep 5s
 
 echo ''
 echo '###### Instalado Docker-compose !######'
-echo ''
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
-echo ''
-echo '######Docker-compose instalado com sucesso!######'
-echo ''
 sleep 5s
 
 echo ''
 echo '###### Instalado Composer !######'
-echo ''
 sudo apt install -y composer
 composer --version
 sleep 5s
