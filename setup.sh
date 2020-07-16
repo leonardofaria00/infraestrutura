@@ -13,152 +13,193 @@
 #                                                                                 #
 ###################################################################################
 
-limpar (){
-echo ''
-echo '###### Limpando caches! ######'
-sudo apt -y autoremove
-sudo apt autoclean
-sudo apt remove
-sudo apt clean
-sudo rm -rf /var/lib/apt/lists/*
-sudo rm -rf /var/tmp/*
-echo ''
-echo 'Tudo limpo!'
-sleep 2s
-clear
+limpar() {
+    echo ''
+    echo '###### Limpando caches! ######'
+    sudo apt -y autoremove
+    sudo apt autoclean
+    sudo apt remove
+    sudo apt clean
+    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/tmp/*
+    echo ''
+    echo 'Tudo limpo!'
+    sleep 2s
+    clear
 }
 
-# Verificando versão do Sistema Operacional.
-echo ''
-echo '###### Sistema Operacional !######'
-echo ''
-lsb_release -a
-sleep 5s
+getOS() {
+    # Verificando versão do Sistema Operacional.
+    echo ''
+    echo '###### Sistema Operacional !######'
+    echo ''
+    lsb_release -a
+    sleep 5s
+}
+getOS
 
+getUpdate() {
+    # Atualizando a máquina.
+    sudo apt -y update && apt -y upgrade
+}
+getUpdate
 
-# Atualizando a máquina.
-sudo apt -y update && apt -y upgrade
+getUtil() {
+    echo ''
+    echo '###### Instalando programas úteis !######'
+    apt install -y sudo vim curl psensor gsmartcontrol gnome-tweaks
+}
+getUtil
 
-echo ''
-echo '###### Instalando programas úteis !######'
-apt install -y sudo vim curl psensor gsmartcontrol gnome-tweaks
+getColor() {
+    # Colorindo terminal
+    sudo cp /etc/skel/.bashrc /home/$USER/
+    sudo echo 'set number' >>/home/$USER/.vimrc
+    sudo echo 'syntax enable' >>/home/$USER/.vimrc
+    sudo echo 'force_color_prompt=yes' >>/home/$USER/.bashrc
+}
+getColor
 
-# Colorindo terminal
-sudo cp /etc/skel/.bashrc /home/$USER/
-sudo echo 'set number' >> /home/$USER/.vimrc
-sudo echo 'syntax enable' >> /home/$USER/.vimrc
-sudo echo 'force_color_prompt=yes' >> /home/$USER/.bashrc
+getJDK() {
+    echo ''
+    echo '###### Instalado JDK8 !######'
+    sudo apt install -y software-properties-common
+    sudo add-apt-repository ppa:linuxuprising/java
+    sudo apt install -y openjdk-8-jdk
 
-echo ''
-echo '###### Instalado JDK8 !######'
-sudo apt install -y software-properties-common
-sudo add-apt-repository ppa:linuxuprising/java
-sudo apt install -y openjdk-8-jdk
+    # sudo apt-get install -y default-jdk
+    # sudo update-alternatives --config java
+    # Definindo Variáveis de ambiente
+    sudo echo 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java' >>/home/$USER/.bashrc
+    sudo echo 'export JAVA_HOME' >>/home/$USER/.bashrc
+    sudo echo 'export PATH=$PATH:$JAVA_HOME' >>/home/$USER/.bashrc
+    echo $JAVA_HOME
 
-# sudo apt-get install -y default-jdk
-# sudo update-alternatives --config java
-# Definindo Variáveis de ambiente
-sudo echo 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java' >> /home/$USER/.bashrc
-sudo echo 'export JAVA_HOME' >> /home/$USER/.bashrc
-sudo echo 'export PATH=$PATH:$JAVA_HOME' >> /home/$USER/.bashrc
-echo $JAVA_HOME
+    javac -version
+    sleep 5s
+}
+getJDK
 
-javac -version
-sleep 5s
+getAngular() {
+    echo ''
+    echo '###### Instalando NPM, Nodejs e Angular/CLI !######'
+    # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+    sudo apt install -y npm
+    npm -v
 
-echo ''
-echo '###### Instalando NPM, Nodejs e Angular/CLI !######'
-# Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
-sudo apt install -y npm
-npm -v
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt install -y nodejs
+    node -v
+    sudo npm install -g @angular/cli
+    ng --version
+}
+getAngular
 
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt install -y nodejs
-node -v
-sudo npm install -g @angular/cli
-ng --version
+getApache() {
+    echo ''
+    echo '###### Instalado Apache2 !######'
+    sudo apt install -y apache2
+    sudo chown $USER:$USER /var/www/ -R
+    sudo service apache2 start
+    sudo systemctl status apache2
+    sleep 5s
+}
+getApache
 
-echo ''
-echo '###### Instalado Apache2 !######'
-sudo apt install -y apache2
-sudo chown $USER:$USER /var/www/ -R
-sudo service apache2 start
-sudo systemctl status apache2
-sleep 5s
+getPHP() {
+    echo ''
+    echo '###### Instalado PHP !######'
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:ondrej/php
+    sudo apt update
+    sudo apt install -y php7.4 php-apcu php-cas php-bz2 php-zip php-xmlrpc php-xml php-mysql php-mbstring php-ldap php-json php-imap php-gd php-dev php-curl php-common php-cli php-bcmath
+    sudo systemctl restart apache2
+    php -v
+    sleep 5s
+    limpar
+}
+getPHP
 
-echo ''
-echo '###### Instalado PHP !######'
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
-sudo apt install -y php7.4 php-apcu php-cas php-bz2 php-zip php-xmlrpc php-xml php-mysql php-mbstring php-ldap php-json php-imap php-gd php-dev php-curl php-common php-cli php-bcmath
-sudo systemctl restart apache2
-php -v
-sleep 5s
-limpar
+getGit() {
+    echo ''
+    echo '###### Instalado Git !######'
+    sudo apt install -y git-all
+    sudo groupadd git
+    sudo usermod -aG git $USER
+    sudo git config --global http.sslVerify false
+    git --version
+    sleep 5s
+}
+getGit
 
-echo ''
-echo '###### Instalado Git !######'
-sudo apt install -y git-all
-sudo groupadd git
-sudo usermod -aG git $USER
-sudo git config --global http.sslVerify false
-git --version
-sleep 5s
+getDocker() {
+    echo ''
+    echo '###### Instalado Docker !######'
+    sudo apt remove docker docker-engine docker.io containerd runc
+    sudo rm -rf /var/lib/docker
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt install -y docker-ce docker-ce-cli containerd.io
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    sudo systemctl enable docker
+    sudo systemctl restart docker.service
+    sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+    sudo chown "$USER":"$USER" /var/run/docker.sock -R
+    sudo chmod g+rwx "$HOME/.docker" -R
+    docker run hello-world
+    # sudo chmod 777 -R /var/run/docker.sock
+    # sudo chmod 777 -R /home/users/.docker/
+    sudo docker version
+    sleep 5s
+}
+getDocker
 
-echo ''
-echo '###### Instalado Docker !######'
-sudo apt remove docker docker-engine docker.io containerd runc
-sudo rm -rf /var/lib/docker
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-sudo groupadd docker
-sudo usermod -aG docker $USER
-sudo systemctl enable docker
-sudo systemctl restart docker.service
-sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-sudo chown "$USER":"$USER" /var/run/docker.sock -R
-sudo chmod g+rwx "$HOME/.docker" -R
-docker run hello-world
-# sudo chmod 777 -R /var/run/docker.sock
-# sudo chmod 777 -R /home/users/.docker/
-sudo docker version
-sleep 5s
+getDockerComposer() {
+    echo ''
+    echo '###### Instalado Docker-compose !######'
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    docker-compose --version
+    sleep 5s
+}
+getDockerComposer
 
-echo ''
-echo '###### Instalado Docker-compose !######'
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-docker-compose --version
-sleep 5s
+getComposer() {
+    echo ''
+    echo '###### Instalado Composer !######'
+    sudo apt install -y composer
+    composer --version
+    sleep 5s
+}
+getComposer
 
-echo ''
-echo '###### Instalado Composer !######'
-sudo apt install -y composer
-composer --version
-sleep 5s
-
-# echo ''
-# echo '######Instalando MySQL!######'
-# sudo apt -y remove mysql-server
-# sudo apt install -y mysql-server
-# sudo service mysql restart
-# sudo mysql_secure_installation
-# sudo mysql -u root
-# SELECT user FROM mysql.user;
-# CREATE USER 'leonardo'@'localhost' IDENTIFIED BY '@#Password123';
-# GRANT ALL ON *.* TO 'leonardo'@'localhost';
-# FLUSH PRIVILEGES;
-# quit;
-# sudo service mysql status
-# sleep 5s
+getMySQL() {
+    echo ''
+    echo '######Instalando MySQL!######'
+    sudo apt -y remove mysql-server
+    sudo apt install -y mysql-server
+    sudo service mysql restart
+    sudo service mysql status
+    sleep 5s
+    # sudo mysql_secure_installation
+    # sudo mysql -u root
+    # SELECT user FROM mysql.user;
+    # CREATE USER 'leonardo'@'localhost' IDENTIFIED BY '@#Password123';
+    # GRANT ALL ON *.* TO 'leonardo'@'localhost';
+    # FLUSH PRIVILEGES;
+    # quit;
+}
+# getMySQL
 
 # Limpando caches e reiniciando a máquina
 limpar
 
-echo 'A Máquina será reiniciada em 10 segundos!'
-sleep 10s
-sudo init 6
+restart() {
+    echo 'A Máquina será reiniciada em 10 segundos!'
+    sleep 10s
+    sudo init 6
+}
+restart
