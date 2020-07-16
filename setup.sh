@@ -6,27 +6,12 @@
 # (61) 9 91728815                                                                 #
 # leonardofaria00@gmail.com                                                       #
 #                                                                                 #
-# Programas a serem instalados: JDK8, Apache2, PHP 7.3, Docker                    #
+# Programas a serem instalados: JDK8, Apache2, PHP 7.4, Docker                    #
 # docker-compose, composer, Git, Mysql-serve e outros programas                   #
 #                                                                                 #
 # Version: 1.0.1                                                                  #
 #                                                                                 #
 ###################################################################################
-
-limpar() {
-    echo ''
-    echo '###### Limpando caches! ######'
-    sudo apt -y autoremove
-    sudo apt autoclean
-    sudo apt remove
-    sudo apt clean
-    sudo rm -rf /var/lib/apt/lists/*
-    sudo rm -rf /var/tmp/*
-    echo ''
-    echo 'Tudo limpo!'
-    sleep 2s
-    clear
-}
 
 getOS() {
     # Verificando versão do Sistema Operacional.
@@ -43,6 +28,21 @@ getUpdate() {
     sudo apt -y update && apt -y upgrade
 }
 getUpdate
+
+limpar() {
+    echo ''
+    echo '###### Limpando caches! ######'
+    sudo apt -y autoremove
+    sudo apt autoclean
+    sudo apt remove
+    sudo apt clean
+    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/tmp/*
+    echo ''
+    echo 'Tudo limpo!'
+    sleep 2s
+    clear
+}
 
 getUtil() {
     echo ''
