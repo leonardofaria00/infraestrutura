@@ -90,7 +90,7 @@ getApache() {
 }
 getApache
 
-limpar() {
+getClean() {
     echo ''
     echo 'Limpando caches...'
     sudo apt -y autoremove
@@ -115,7 +115,7 @@ getPHP() {
     sudo systemctl restart apache2
     php -v
     sleep 5s
-    limpar
+    getClean
 }
 getPHP
 
@@ -194,7 +194,7 @@ getMySQL() {
 # getMySQL
 
 # Limpando caches e reiniciando a máquina
-limpar
+getClean
 
 restart() {
     echo 'A Máquina será reiniciada em 10 segundos...'
