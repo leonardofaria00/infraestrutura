@@ -1,6 +1,5 @@
 {
     // Configurações do ambiente VSCode
-    
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -35,7 +34,7 @@
     // Controla a altura da linha. Use 0 para computar a altura da linha a partir do tamanho da fonte.
     "editor.lineHeight": 0,
     // Formatar um arquivo ao salvar. Um formatador deve estar disponível, o arquivo não pode ser salvo com atraso, e o editor não deve ser desligado.
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     // Controla se o editor deve formatar automaticamente a linha depois de digitar.
     "editor.formatOnType": true,
     // If true, will use single instead of double quotes
@@ -63,7 +62,7 @@
     "php.validate.enable": true,
     "php.validate.executablePath": "",
     "javascript.format.enable": true,
-    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
     "java.codeGeneration.generateComments": true,
     "java.dependency.autoRefresh": true,
     "java.autobuild.enabled": true,
@@ -75,7 +74,7 @@
     // Force update of Snapshots/Releases.
     "java.maven.updateSnapshots": true,
     "java.semanticHighlighting.enabled": true,
-    "explorer.confirmDelete": false,
+    "explorer.confirmDelete": true,
     "shellformat.effectLanguages": [
         "shellscript",
         "dotenv",
