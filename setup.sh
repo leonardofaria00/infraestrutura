@@ -14,45 +14,29 @@
 ###################################################################################
 
 getOS() {
-    # Verificando versão do Sistema Operacional.
     echo ''
     echo '###### Sistema Operacional !######'
-    echo ''
     lsb_release -a
     sleep 5s
 }
 getOS
 
 getUpdate() {
-    # Atualizando a máquina.
-    sudo apt -y update && apt -y upgrade
+    echo ''
+    echo 'Atualizando a máquina...'
+    apt -y update && apt -y upgrade
 }
 getUpdate
 
-limpar() {
-    echo ''
-    echo '###### Limpando caches! ######'
-    sudo apt -y autoremove
-    sudo apt autoclean
-    sudo apt remove
-    sudo apt clean
-    sudo rm -rf /var/lib/apt/lists/*
-    sudo rm -rf /var/tmp/*
-    echo ''
-    echo 'Tudo limpo!'
-    sleep 2s
-    clear
-}
-
 getUtil() {
     echo ''
-    echo '###### Instalando programas úteis !######'
+    echo 'Instalando programas úteis...'
     apt install -y sudo vim curl psensor gsmartcontrol gnome-tweaks
 }
 getUtil
 
 getColor() {
-    # Colorindo terminal
+    echo 'Colorindo terminal...'
     sudo cp /etc/skel/.bashrc /home/$USER/
     sudo echo 'set number' >>/home/$USER/.vimrc
     sudo echo 'syntax enable' >>/home/$USER/.vimrc
@@ -62,7 +46,7 @@ getColor
 
 getJDK() {
     echo ''
-    echo '###### Instalado JDK8 !######'
+    echo 'Instalado JDK8...'
     sudo apt install -y software-properties-common
     sudo add-apt-repository ppa:linuxuprising/java
     sudo apt install -y openjdk-8-jdk
@@ -82,7 +66,7 @@ getJDK
 
 getAngular() {
     echo ''
-    echo '###### Instalando NPM, Nodejs e Angular/CLI !######'
+    echo 'Instalando NPM, Nodejs e Angular/CLI...'
     # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
     sudo apt install -y npm
     npm -v
@@ -97,7 +81,7 @@ getAngular
 
 getApache() {
     echo ''
-    echo '###### Instalado Apache2 !######'
+    echo 'Instalado Apache2...'
     sudo apt install -y apache2
     sudo chown $USER:$USER /var/www/ -R
     sudo service apache2 start
@@ -106,9 +90,24 @@ getApache() {
 }
 getApache
 
+limpar() {
+    echo ''
+    echo 'Limpando caches...'
+    sudo apt -y autoremove
+    sudo apt autoclean
+    sudo apt remove
+    sudo apt clean
+    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/tmp/*
+    echo ''
+    echo 'Tudo limpo!'
+    sleep 2s
+    clear
+}
+
 getPHP() {
     echo ''
-    echo '###### Instalado PHP !######'
+    echo 'Instalado PHP...'
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:ondrej/php
     sudo apt update
@@ -122,7 +121,7 @@ getPHP
 
 getGit() {
     echo ''
-    echo '###### Instalado Git !######'
+    echo 'Instalado Git...'
     sudo apt install -y git-all
     sudo groupadd git
     sudo usermod -aG git $USER
@@ -134,7 +133,7 @@ getGit
 
 getDocker() {
     echo ''
-    echo '###### Instalado Docker !######'
+    echo 'Instalado Docker...'
     sudo apt remove docker docker-engine docker.io containerd runc
     sudo rm -rf /var/lib/docker
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -158,7 +157,7 @@ getDocker
 
 getDockerComposer() {
     echo ''
-    echo '###### Instalado Docker-compose !######'
+    echo 'Instalado Docker-compose...'
     sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
@@ -169,7 +168,7 @@ getDockerComposer
 
 getComposer() {
     echo ''
-    echo '###### Instalado Composer !######'
+    echo 'Instalado Composer...'
     sudo apt install -y composer
     composer --version
     sleep 5s
@@ -178,7 +177,7 @@ getComposer
 
 getMySQL() {
     echo ''
-    echo '######Instalando MySQL!######'
+    echo 'Instalando MySQL...'
     sudo apt -y remove mysql-server
     sudo apt install -y mysql-server
     sudo service mysql restart
@@ -198,7 +197,7 @@ getMySQL() {
 limpar
 
 restart() {
-    echo 'A Máquina será reiniciada em 10 segundos!'
+    echo 'A Máquina será reiniciada em 10 segundos...'
     sleep 10s
     sudo init 6
 }
