@@ -34,7 +34,7 @@
     // Controla a altura da linha. Use 0 para computar a altura da linha a partir do tamanho da fonte.
     "editor.lineHeight": 0,
     // Formatar um arquivo ao salvar. Um formatador deve estar disponível, o arquivo não pode ser salvo com atraso, e o editor não deve ser desligado.
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     // Controla se o editor deve formatar automaticamente a linha depois de digitar.
     "editor.formatOnType": true,
     // If true, will use single instead of double quotes
@@ -62,7 +62,7 @@
     "php.validate.enable": true,
     "php.validate.executablePath": "",
     "javascript.format.enable": true,
-    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
+    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
     "java.codeGeneration.generateComments": true,
     "java.dependency.autoRefresh": true,
     "java.autobuild.enabled": true,
@@ -74,7 +74,7 @@
     // Force update of Snapshots/Releases.
     "java.maven.updateSnapshots": true,
     "java.semanticHighlighting.enabled": true,
-    "explorer.confirmDelete": true,
+    "explorer.confirmDelete": false,
     "shellformat.effectLanguages": [
         "shellscript",
         "dotenv",
@@ -88,5 +88,6 @@
     ],
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
-    }
+    },
+    "telemetry.enableTelemetry": true
 }
