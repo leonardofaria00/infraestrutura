@@ -62,7 +62,7 @@
     "php.validate.enable": true,
     "php.validate.executablePath": "",
     "javascript.format.enable": true,
-    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
     "java.codeGeneration.generateComments": true,
     "java.dependency.autoRefresh": true,
     "java.autobuild.enabled": true,
@@ -88,6 +88,5 @@
     ],
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "telemetry.enableTelemetry": true
+    }
 }
