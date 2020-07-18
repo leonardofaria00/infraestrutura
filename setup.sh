@@ -144,9 +144,11 @@ getDocker() {
     sleep 2s
     sudo apt remove docker docker-engine docker.io containerd runc
     sudo rm -rf /var/lib/docker
+    getClean
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    getUpdate
     sudo apt install -y docker-ce docker-ce-cli containerd.io
     sudo groupadd docker
     sudo usermod -aG docker $USER
