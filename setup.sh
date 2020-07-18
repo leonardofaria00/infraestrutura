@@ -160,7 +160,7 @@ getDocker() {
     docker run hello-world
     # sudo chmod 777 -R /var/run/docker.sock
     # sudo chmod 777 -R /home/users/.docker/
-    sudo docker version
+    docker version
     sleep 5s
 }
 getDocker
