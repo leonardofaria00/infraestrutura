@@ -24,7 +24,7 @@ getOS
 getUpdate() {
     echo ''
     echo 'Atualizando a máquina...'
-    sudo apt -y update && apt -y upgrade
+    sudo apt -y update && sudo apt -y upgrade
 }
 getUpdate
 
