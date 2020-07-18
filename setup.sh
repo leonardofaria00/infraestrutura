@@ -3,8 +3,6 @@
 # MANUAL DO DESENVOLVEDOR                                                         #
 # Script que instala as principais ferramentas de Desenvolvimento web.            #
 # DEVELOPER BY LEONARDO SANTOS                                                    #
-# (61) 9 91728815                                                                 #
-# leonardofaria00@gmail.com                                                       #
 #                                                                                 #
 # Programas a serem instalados: JDK8, Apache2, PHP 7.4, Docker                    #
 # docker-compose, composer, Git, Mysql-serve e outros programas                   #
@@ -24,6 +22,7 @@ getOS
 getUpdate() {
     echo ''
     echo 'Atualizando a máquina...'
+    sleep 2s
     sudo apt -y update && sudo apt -y upgrade
 }
 getUpdate
@@ -31,12 +30,14 @@ getUpdate
 getUtil() {
     echo ''
     echo 'Instalando programas úteis...'
+    sleep 2s
     sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
 }
 getUtil
 
 getColor() {
     echo 'Colorindo terminal...'
+    sleep 2s
     sudo cp /etc/skel/.bashrc /home/$USER/
     sudo echo 'set number' >>/home/$USER/.vimrc
     sudo echo 'syntax enable' >>/home/$USER/.vimrc
@@ -47,6 +48,7 @@ getColor
 getJDK() {
     echo ''
     echo 'Instalado JDK8...'
+    sleep 2s
     sudo apt install -y software-properties-common
     sudo add-apt-repository ppa:linuxuprising/java
     sudo apt install -y openjdk-8-jdk
@@ -67,6 +69,7 @@ getJDK
 getAngular() {
     echo ''
     echo 'Instalando NPM, Nodejs e Angular/CLI...'
+    sleep 2s
     # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
     sudo apt install -y npm
     npm -v
@@ -77,22 +80,24 @@ getAngular() {
     sudo npm install -g @angular/cli
     ng --version
 }
-getAngular
+# getAngular
 
 getApache() {
     echo ''
     echo 'Instalado Apache2...'
+    sleep 2s
     sudo apt install -y apache2
     sudo chown $USER:$USER /var/www/ -R
     sudo service apache2 start
     sudo systemctl status apache2
     sleep 5s
 }
-getApache
+# getApache
 
 getClean() {
     echo ''
     echo 'Limpando caches...'
+    sleep 2s
     sudo apt -y autoremove
     sudo apt autoclean
     sudo apt remove
@@ -108,6 +113,7 @@ getClean() {
 getPHP() {
     echo ''
     echo 'Instalado PHP...'
+    sleep 2s
     sudo apt install software-properties-common
     sudo add-apt-repository ppa:ondrej/php
     sudo apt update
@@ -117,11 +123,12 @@ getPHP() {
     sleep 5s
     getClean
 }
-getPHP
+# getPHP
 
 getGit() {
     echo ''
     echo 'Instalado Git...'
+    sleep 2s
     sudo apt install -y git-all
     sudo groupadd git
     sudo usermod -aG git $USER
@@ -134,6 +141,7 @@ getGit
 getDocker() {
     echo ''
     echo 'Instalado Docker...'
+    sleep 2s
     sudo apt remove docker docker-engine docker.io containerd runc
     sudo rm -rf /var/lib/docker
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -158,6 +166,7 @@ getDocker
 getDockerComposer() {
     echo ''
     echo 'Instalado Docker-compose...'
+    sleep 2s
     sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
@@ -169,11 +178,12 @@ getDockerComposer
 getComposer() {
     echo ''
     echo 'Instalado Composer...'
+    sleep 2s
     sudo apt install -y composer
     composer --version
     sleep 5s
 }
-getComposer
+# getComposer
 
 getMySQL() {
     echo ''
