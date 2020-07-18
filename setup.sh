@@ -24,14 +24,14 @@ getOS
 getUpdate() {
     echo ''
     echo 'Atualizando a máquina...'
-    apt -y update && apt -y upgrade
+    sudo apt -y update && apt -y upgrade
 }
 getUpdate
 
 getUtil() {
     echo ''
     echo 'Instalando programas úteis...'
-    apt install -y sudo vim curl psensor gsmartcontrol gnome-tweaks
+    sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
 }
 getUtil
 
