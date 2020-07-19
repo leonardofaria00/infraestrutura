@@ -133,6 +133,8 @@ getGit() {
     sudo groupadd git
     sudo usermod -aG git $USER
     sudo git config --global http.sslVerify false
+    echo git config --global user.name "leonardofaria00"
+    echo git config --global user.email "leonardofaria00@gmail.com"
     git --version
     sleep 5s
 }
