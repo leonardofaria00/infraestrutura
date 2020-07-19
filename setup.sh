@@ -17,7 +17,6 @@ getOS() {
     lsb_release -a
     sleep 5s
 }
-getOS
 
 getUpdate() {
     echo ''
@@ -25,7 +24,6 @@ getUpdate() {
     sleep 2s
     sudo apt -y update && sudo apt -y upgrade
 }
-getUpdate
 
 getUtil() {
     echo ''
@@ -33,7 +31,6 @@ getUtil() {
     sleep 2s
     sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
 }
-getUtil
 
 getColor() {
     echo 'Colorindo terminal...'
@@ -43,7 +40,6 @@ getColor() {
     sudo echo 'syntax enable' >>/home/$USER/.vimrc
     sudo echo 'force_color_prompt=yes' >>/home/$USER/.bashrc
 }
-getColor
 
 getJDK() {
     echo ''
@@ -53,18 +49,18 @@ getJDK() {
     sudo add-apt-repository ppa:linuxuprising/java
     sudo apt install -y openjdk-8-jdk
 
-    # sudo apt-get install -y default-jdk
-    # sudo update-alternatives --config java
-    # Definindo Variáveis de ambiente
     sudo echo 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java' >>/home/$USER/.bashrc
     sudo echo 'export JAVA_HOME' >>/home/$USER/.bashrc
     sudo echo 'export PATH=$PATH:$JAVA_HOME' >>/home/$USER/.bashrc
+    source .bashrc
     echo $JAVA_HOME
 
     javac -version
     sleep 5s
+    # sudo apt-get install -y default-jdk
+    # sudo update-alternatives --config java
+    # Definindo Variáveis de ambiente
 }
-getJDK
 
 getAngular() {
     echo ''
@@ -80,7 +76,6 @@ getAngular() {
     sudo npm install -g @angular/cli
     ng --version
 }
-# getAngular
 
 getApache() {
     echo ''
@@ -92,7 +87,6 @@ getApache() {
     sudo systemctl status apache2
     sleep 5s
 }
-# getApache
 
 getClean() {
     echo ''
@@ -123,7 +117,6 @@ getPHP() {
     sleep 5s
     getClean
 }
-# getPHP
 
 getGit() {
     echo ''
@@ -136,7 +129,6 @@ getGit() {
     git --version
     sleep 5s
 }
-getGit
 
 getDocker() {
     echo ''
@@ -163,7 +155,6 @@ getDocker() {
     docker version
     sleep 5s
 }
-getDocker
 
 getDockerComposer() {
     echo ''
@@ -175,7 +166,6 @@ getDockerComposer() {
     docker-compose --version
     sleep 5s
 }
-getDockerComposer
 
 getComposer() {
     echo ''
@@ -185,7 +175,6 @@ getComposer() {
     composer --version
     sleep 5s
 }
-# getComposer
 
 getMySQL() {
     echo ''
@@ -203,14 +192,27 @@ getMySQL() {
     # FLUSH PRIVILEGES;
     # quit;
 }
-# getMySQL
 
 # Limpando caches e reiniciando a máquina
-getClean
 
 restart() {
     echo 'A Máquina será reiniciada em 10 segundos...'
     sleep 10s
     sudo init 6
 }
+
+getOS
+getUpdate
+getUtil
+getColor
+getJDK
+# getAngular
+# getApache
+# getPHP
+getGit
+getDocker
+getDockerComposer
+# getComposer
+# getMySQL
+getClean
 restart
