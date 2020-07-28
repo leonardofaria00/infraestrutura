@@ -1,0 +1,7 @@
+sudo echo "http_proxy='http://10.200.2.2:8080/'" >>/etc/environment
+
+http_proxy="http://10.200.2.2:8080/"
+https_proxy="http://10.200.2.2:8080/"
+ftp_proxy="ftp://10.200.2.2:8080/"
+socks_proxy="socks://10.200.2.2:8080/"
+no_proxy="localhost,127.0.0.0/8,10.30.1.0/24,10.1.0.0/16,10.244.0.0/16"
