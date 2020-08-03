@@ -29,7 +29,7 @@ getUtil() {
     echo ''
     echo 'Instalando programas úteis...'
     sleep 2s
-    sudo apt install -y vim curl psensor gsmartcontrol gnome-tweaks
+    sudo apt install -y vim curl wget psensor gsmartcontrol gnome-tweaks
 }
 
 getColor() {
@@ -204,6 +204,9 @@ getWine(){
     winecfg
 }
 
+getVSCode(){
+cp -v settings.json ~/.config/Code/User/
+}
 # Limpando caches e reiniciando a máquina
 
 restart() {
@@ -226,5 +229,6 @@ getDockerComposer
 # getComposer
 # getMySQL
 getWine
+getVSCode
 getClean
 restart
