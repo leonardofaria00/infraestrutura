@@ -7,7 +7,7 @@
 # Programas a serem instalados: JDK8, Apache2, PHP 7.4, Docker                    #
 # docker-compose, composer, Git, Mysql-serve e outros programas                   #
 #                                                                                 #
-# Version: 1.0.1                                                                  #
+# Version: 1.0.2                                                                  #
 #                                                                                 #
 ###################################################################################
 
