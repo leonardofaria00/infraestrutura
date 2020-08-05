@@ -7,7 +7,7 @@
 # Programas a serem instalados: JDK8, Apache2, PHP 7.4, Docker                    #
 # docker-compose, composer, Git, Mysql-serve e outros programas                   #
 #                                                                                 #
-# Version: 1.0.2                                                                  #
+# Version: 1.0.3                                                                  #
 #                                                                                 #
 ###################################################################################
 
@@ -195,8 +195,8 @@ getMySQL() {
     # quit;
 }
 
-getWine(){
-    sudo dpkg --add-architecture i386 
+getWine() {
+    sudo dpkg --add-architecture i386
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
     sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
     sudo apt update
@@ -204,9 +204,27 @@ getWine(){
     winecfg
 }
 
-getVSCode(){
-cp -v settings.json ~/.config/Code/User/
+getVSCode() {
+    cp -v settings.json ~/.config/Code/User/
 }
+
+getPacker() {
+    echo ''
+    echo 'Instalado Packer...'
+    sleep 2s
+
+    sudo mkdir /usr/local/packer
+    sudo echo ' ' >>/home/$USER/.bashrc
+    sudo echo 'PACKER=/usr/local/packer' >>/home/$USER/.bashrc
+    sudo echo 'export PACKER' >>/home/$USER/.bashrc
+    sudo echo 'export PATH=$PATH:$PACKER' >>/home/$USER/.bashrc
+    source /home/$USER/.bashrc
+    echo $PACKER
+
+    packer --version
+    sleep 5s
+}
+
 # Limpando caches e reiniciando a máquina
 
 restart() {
@@ -230,5 +248,6 @@ getDockerComposer
 # getMySQL
 getWine
 getVSCode
+getPacker
 getClean
 restart
