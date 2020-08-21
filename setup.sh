@@ -7,7 +7,7 @@
 # Programas a serem instalados: JDK8, Apache2, PHP 7.4, Docker                    #
 # docker-compose, composer, Git, Mysql-serve e outros programas                   #
 #                                                                                 #
-# Version: 1.0.3                                                                  #
+# Version: 1.0.4                                                                  #
 #                                                                                 #
 ###################################################################################
 
@@ -62,17 +62,28 @@ getJDK() {
     # Definindo Variáveis de ambiente
 }
 
-getAngular() {
+getNPM() {
     echo ''
-    echo 'Instalando NPM, Nodejs e Angular/CLI...'
+    echo 'Instalando NPM...'
     sleep 2s
     # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
     sudo apt install -y npm
     npm -v
-
+}
+getNodejs() {
+    echo ''
+    echo 'Instalando Node.js...'
+    sleep 2s
+    getNPM()
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt install -y nodejs
     node -v
+}
+getAngular() {
+    echo ''
+    echo 'Instalando Angular/CLI...'
+    sleep 2s
+    getNPM()
     sudo npm install -g @angular/cli
     ng --version
 }
