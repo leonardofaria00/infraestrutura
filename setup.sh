@@ -249,6 +249,7 @@ getUpdate
 getUtil
 getColor
 getJDK
+# getNodejs
 # getAngular
 # getApache
 # getPHP
