@@ -30,7 +30,7 @@
     "editor.formatOnType": true,
     "prettier.singleQuote": true,
     "editor.formatOnPaste": true,
-    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.ignoreTrimWhitespace": false,
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.startupEditor": "newUntitledFile",
     "git.autofetch": true,
@@ -50,8 +50,8 @@
     "php.validate.enable": true,
     "php.validate.executablePath": "",
     "javascript.format.enable": true,
-    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_261",
-    //"java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
+    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
+    // "java.home": "C:\\Program Files\\Java\\jdk1.8.0_261",
     "java.codeGeneration.generateComments": true,
     "java.dependency.autoRefresh": true,
     "java.autobuild.enabled": true,
@@ -72,7 +72,67 @@
         "spring-boot-properties",
         "azcli"
     ],
+    "better-comments.highlightPlainText": true,
+    "better-comments.multilineComments": true,
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
-    }
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "sync.quietSync": true,
+    "sync.gist": "00032af399f58d1545a725ea6a0bc96e",
+    "window.zoomLevel": 0,
+    "liveServer.settings.fullReload": true,
+    "editor.renameOnType": true,
+    "workbench.colorTheme": "Dracula"
 }
