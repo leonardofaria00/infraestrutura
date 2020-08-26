@@ -134,5 +134,7 @@
     "window.zoomLevel": 0,
     "liveServer.settings.fullReload": true,
     "editor.renameOnType": true,
-    "workbench.colorTheme": "Dracula"
+    "workbench.colorTheme": "Dracula",
+    "powermode.enabled": true,
+    "powermode.presets": "flames"
 }
