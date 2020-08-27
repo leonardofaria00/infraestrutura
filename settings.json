@@ -1,21 +1,33 @@
 {
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "[php]": {
-        "editor.defaultFormatter": "vscode.php-language-features"
+        "editor.defaultFormatter": "vscode.php-language-features",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "emmet.syntaxProfiles": {
         "javascript": "jsx"
@@ -52,14 +64,6 @@
     "javascript.format.enable": true,
     "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
     // "java.home": "C:\\Program Files\\Java\\jdk1.8.0_261",
-    "java.codeGeneration.generateComments": true,
-    "java.dependency.autoRefresh": true,
-    "java.autobuild.enabled": true,
-    "java.format.enabled": true,
-    "java.saveActions.organizeImports": true,
-    "java.maven.downloadSources": false,
-    "java.maven.updateSnapshots": true,
-    "java.semanticHighlighting.enabled": true,
     "explorer.confirmDelete": true,
     "shellformat.effectLanguages": [
         "shellscript",
@@ -135,6 +139,7 @@
     "liveServer.settings.fullReload": true,
     "editor.renameOnType": true,
     "workbench.colorTheme": "Dracula",
+    "vscodeGoogleTranslate.preferredLanguage": "English",
     "powermode.enabled": true,
     "powermode.presets": "flames"
 }
