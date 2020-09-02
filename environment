@@ -1,4 +1,4 @@
-sudo echo "http_proxy='http://10.200.2.2:8080/'" >>/etc/environment
+# sudo echo "http_proxy='http://10.200.2.2:8080/'" >>/etc/environment
 
 http_proxy="http://10.200.2.2:8080/"
 https_proxy="http://10.200.2.2:8080/"
