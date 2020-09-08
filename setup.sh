@@ -241,6 +241,7 @@ getPacker() {
 
 restart() {
     getClean
+    getUpdate
     echo 'A Máquina será reiniciada em 10 segundos...'
     sleep 10s
     sudo init 6
