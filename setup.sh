@@ -22,14 +22,14 @@ getUpdate() {
     echo ''
     echo 'Atualizando a máquina...'
     sleep 2s
-    sudo apt -y update && sudo apt -y upgrade
+    sudo apt -y update && sudo apt -y upgrade && sudo apt -y autoremove
 }
 
 getUtil() {
     echo ''
     echo 'Instalando programas úteis...'
     sleep 2s
-    sudo apt install -y vim curl wget psensor gsmartcontrol gnome-tweaks
+    sudo apt install -y vim curl wget psensor gnome-tweaks gsmartcontrol
 }
 
 getColor() {
@@ -43,13 +43,13 @@ getColor() {
 
 getJDK() {
     echo ''
-    echo 'Instalado JDK8...'
+    echo 'Instalado OpenJDK-14...'
     sleep 2s
     sudo apt install -y software-properties-common
     sudo add-apt-repository ppa:linuxuprising/java
-    sudo apt install -y openjdk-8-jdk
+    sudo apt install -y openjdk-14-jdk
 
-    sudo echo 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java' >>/home/$USER/.bashrc
+    sudo echo 'JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64/jre/bin/java' >>/home/$USER/.bashrc
     sudo echo 'export JAVA_HOME' >>/home/$USER/.bashrc
     sudo echo 'export PATH=$PATH:$JAVA_HOME' >>/home/$USER/.bashrc
     source .bashrc
@@ -59,31 +59,31 @@ getJDK() {
     sleep 5s
     # sudo apt-get install -y default-jdk
     # sudo update-alternatives --config java
-    # Definindo Variáveis de ambiente
 }
 
 getNPM() {
     echo ''
     echo 'Instalando NPM...'
     sleep 2s
-    # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
     sudo apt install -y npm
+    sudo npm install -g npm@latest
     npm -v
 }
 getNodejs() {
+    getNPM
     echo ''
     echo 'Instalando Node.js...'
     sleep 2s
-    getNPM()
+    # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt install -y nodejs
     node -v
 }
 getAngular() {
+    getNPM
     echo ''
     echo 'Instalando Angular/CLI...'
     sleep 2s
-    getNPM()
     sudo npm install -g @angular/cli
     ng --version
 }
@@ -130,6 +130,7 @@ getPHP() {
 }
 
 getGit() {
+    getUpdate
     echo ''
     echo 'Instalado Git...'
     sleep 2s
@@ -144,16 +145,16 @@ getGit() {
 }
 
 getDocker() {
+    getClean
+    getUpdate
     echo ''
     echo 'Instalado Docker...'
     sleep 2s
     sudo apt remove docker docker-engine docker.io containerd runc
     sudo rm -rf /var/lib/docker
-    getClean
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    getUpdate
     sudo apt install -y docker-ce docker-ce-cli containerd.io
     sudo groupadd docker
     sudo usermod -aG docker $USER
@@ -173,7 +174,7 @@ getDockerComposer() {
     echo ''
     echo 'Instalado Docker-compose...'
     sleep 2s
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.27.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     docker-compose --version
@@ -239,6 +240,7 @@ getPacker() {
 # Limpando caches e reiniciando a máquina
 
 restart() {
+    getClean
     echo 'A Máquina será reiniciada em 10 segundos...'
     sleep 10s
     sudo init 6
@@ -260,6 +262,6 @@ getDockerComposer
 # getMySQL
 getWine
 getVSCode
-getPacker
+#getPacker
 getClean
 restart
