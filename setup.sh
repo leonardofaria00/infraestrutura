@@ -69,6 +69,7 @@ getNPM() {
     sudo npm install -g npm@latest
     npm -v
 }
+
 getNodejs() {
     getNPM
     echo ''
@@ -78,25 +79,6 @@ getNodejs() {
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt install -y nodejs
     node -v
-}
-getAngular() {
-    getNPM
-    echo ''
-    echo 'Instalando Angular/CLI...'
-    sleep 2s
-    sudo npm install -g @angular/cli
-    ng --version
-}
-
-getApache() {
-    echo ''
-    echo 'Instalado Apache2...'
-    sleep 2s
-    sudo apt install -y apache2
-    sudo chown $USER:$USER /var/www/ -R
-    sudo service apache2 start
-    sudo systemctl status apache2
-    sleep 5s
 }
 
 getClean() {
@@ -115,18 +97,13 @@ getClean() {
     clear
 }
 
-getPHP() {
+getAngular() {
+    getNPM
     echo ''
-    echo 'Instalado PHP...'
+    echo 'Instalando Angular/CLI...'
     sleep 2s
-    sudo apt install software-properties-common
-    sudo add-apt-repository ppa:ondrej/php
-    sudo apt update
-    sudo apt install -y php7.4 php-apcu php-cas php-bz2 php-zip php-xmlrpc php-xml php-mysql php-mbstring php-ldap php-json php-imap php-gd php-dev php-curl php-common php-cli php-bcmath
-    sudo systemctl restart apache2
-    php -v
-    sleep 5s
-    getClean
+    sudo npm install -g @angular/cli
+    ng --version
 }
 
 getGit() {
@@ -170,7 +147,7 @@ getDocker() {
     sleep 5s
 }
 
-getDockerComposer() {
+getDockerCompose() {
     echo ''
     echo 'Instalado Docker-compose...'
     sleep 2s
@@ -179,6 +156,31 @@ getDockerComposer() {
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     docker-compose --version
     sleep 5s
+}
+
+getApache() {
+    echo ''
+    echo 'Instalado Apache2...'
+    sleep 2s
+    sudo apt install -y apache2
+    sudo chown $USER:$USER /var/www/ -R
+    sudo service apache2 start
+    sudo systemctl status apache2
+    sleep 5s
+}
+
+getPHP() {
+    echo ''
+    echo 'Instalado PHP...'
+    sleep 2s
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:ondrej/php
+    sudo apt update
+    sudo apt install -y php7.4 php-apcu php-cas php-bz2 php-zip php-xmlrpc php-xml php-mysql php-mbstring php-ldap php-json php-imap php-gd php-dev php-curl php-common php-cli php-bcmath
+    sudo systemctl restart apache2
+    php -v
+    sleep 5s
+    getClean
 }
 
 getComposer() {
@@ -252,13 +254,13 @@ getUpdate
 getUtil
 getColor
 getJDK
-# getNodejs
+getNodejs
 # getAngular
 # getApache
 # getPHP
 getGit
 getDocker
-getDockerComposer
+getDockerCompose
 # getComposer
 # getMySQL
 getWine
