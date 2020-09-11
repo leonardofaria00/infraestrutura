@@ -206,6 +206,7 @@ getMySQL() {
     # CREATE USER 'leonardo'@'localhost' IDENTIFIED BY 'password';
     # GRANT ALL ON *.* TO 'leonardo'@'localhost';
     # FLUSH PRIVILEGES;
+    # ALTER USER 'leonardo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
     # quit;
 }
 
