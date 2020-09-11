@@ -203,7 +203,7 @@ getMySQL() {
     # sudo mysql_secure_installation
     # sudo mysql -u root
     # SELECT user FROM mysql.user;
-    # CREATE USER 'leonardo'@'localhost' IDENTIFIED BY '@#Password123';
+    # CREATE USER 'leonardo'@'localhost' IDENTIFIED BY 'password';
     # GRANT ALL ON *.* TO 'leonardo'@'localhost';
     # FLUSH PRIVILEGES;
     # quit;
