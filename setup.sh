@@ -41,6 +41,20 @@ getColor() {
     sudo echo 'force_color_prompt=yes' >>/home/$USER/.bashrc
 }
 
+getClean() {
+    echo ''
+    echo 'Limpando caches...'
+    sleep 2s
+    sudo apt -y autoremove
+    sudo apt autoclean
+    sudo apt remove
+    sudo apt clean
+    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/tmp/*
+    echo ''
+    echo 'Tudo limpo!'
+}
+
 getJDK() {
     echo ''
     echo 'Instalado OpenJDK-14...'
@@ -88,22 +102,6 @@ getNodejs() {
     sudo npm install -g typescript
     node -v
     tsc -version
-}
-
-getClean() {
-    echo ''
-    echo 'Limpando caches...'
-    sleep 2s
-    sudo apt -y autoremove
-    sudo apt autoclean
-    sudo apt remove
-    sudo apt clean
-    sudo rm -rf /var/lib/apt/lists/*
-    sudo rm -rf /var/tmp/*
-    echo ''
-    echo 'Tudo limpo!'
-    sleep 2s
-    clear
 }
 
 getAngular() {
@@ -248,8 +246,6 @@ getPacker() {
     packer --version
     sleep 5s
 }
-
-# Limpando caches e reiniciando a máquina
 
 restart() {
     getClean
