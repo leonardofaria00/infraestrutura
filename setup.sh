@@ -247,6 +247,11 @@ getPacker() {
     sleep 5s
 }
 
+getPCSX() {
+sudo apt-get update
+sudo apt-get install pcsx2
+}
+
 restart() {
     getClean
     getUpdate
