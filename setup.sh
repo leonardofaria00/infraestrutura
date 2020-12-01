@@ -75,6 +75,19 @@ getJDK() {
     # sudo update-alternatives --config java
 }
 
+getNodejs() {
+    getNPM
+    echo ''
+    echo 'Instalando Node.js...'
+    sleep 2s
+    # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt install -y nodejs
+    sudo npm install -g typescript
+    node -v
+    tsc -version
+}
+
 getNPM() {
     echo ''
     echo 'Instalando NPM...'
@@ -89,19 +102,6 @@ getYarn() {
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update && sudo apt install yarn
     yarn --version
-}
-
-getNodejs() {
-    getNPM
-    echo ''
-    echo 'Instalando Node.js...'
-    sleep 2s
-    # Referência: https://github.com/nodesource/distributions/blob/master/README.md#debinstall
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    sudo apt install -y nodejs
-    sudo npm install -g typescript
-    node -v
-    tsc -version
 }
 
 getAngular() {
@@ -255,6 +255,7 @@ sudo apt-get install pcsx2
 restart() {
     getClean
     getUpdate
+    getClean
     echo 'A Máquina será reiniciada em 10 segundos...'
     sleep 10s
     sudo init 6
@@ -278,5 +279,4 @@ getDockerCompose
 getWine
 getVSCode
 #getPacker
-getClean
 restart
