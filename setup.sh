@@ -113,6 +113,15 @@ getAngular() {
     ng --version
 }
 
+getAngularForSpread(){
+    set path=%node_path%;
+    echo %path%
+    npm config set -g registry http://
+    npm config get registry
+    npm install -g @angular/cli
+    ng serve
+}
+
 getGit() {
     getUpdate
     echo ''
