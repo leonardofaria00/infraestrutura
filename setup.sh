@@ -119,6 +119,7 @@ getAngularForSpread(){
     npm config set -g registry http://
     npm config get registry
     npm install -g @angular/cli
+    ng --version
     npm install
     ng serve
 }
