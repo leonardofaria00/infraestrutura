@@ -109,7 +109,7 @@ getAngular() {
     echo ''
     echo 'Instalando Angular/CLI...'
     sleep 2s
-    sudo npm install -g @angular/cli
+    sudo npm install -g @angular/cli typescript @angular-devkit/build-angular
     ng --version
 }
 
@@ -118,8 +118,7 @@ getAngularForSpread(){
     echo %path%
     npm config set -g registry http://
     npm config get registry
-    npm install -g @angular/cli
-    ng --version
+    getAngular()
     npm install
     ng serve
 }
