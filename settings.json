@@ -1,6 +1,6 @@
 {
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
     },
@@ -10,7 +10,15 @@
         "editor.formatOnPaste": true
     },
     "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
     },
@@ -32,36 +40,40 @@
     "emmet.syntaxProfiles": {
         "javascript": "jsx"
     },
-    "files.autoSave": "afterDelay",
     "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile",
     "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.suggestSmartCommit": true,
     "debug.console.fontFamily": "default",
     "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.lineHeight": 0,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "prettier.singleQuote": true,
     "editor.formatOnPaste": true,
+    "editor.suggestSelection": "first",
+    "editor.suggestLineHeight": 0,
+    "editor.renameOnType": true,
+    "prettier.singleQuote": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "git.autofetch": true,
-    "liveServer.settings.donotShowInfoMsg": true,
     "docker.defaultRegistryPath": "leonardofaria00",
-    "git.suggestSmartCommit": true,
+    "files.autoSave": "off",
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
         "**/.settings": true,
-        "**/.factorypath": true
+        "**/.factorypath": true,
+        "**/.git": true,
+        "node_modules": true
     },
-    "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "html.format.enable": true,
     "typescript.format.enable": true,
     "php.validate.enable": true,
     "php.validate.executablePath": "",
     "javascript.format.enable": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
     "java.codeGeneration.generateComments": true,
     "java.dependency.autoRefresh": true,
     "java.autobuild.enabled": true,
@@ -70,8 +82,8 @@
     "java.maven.downloadSources": false,
     "java.maven.updateSnapshots": true,
     "java.semanticHighlighting.enabled": true,
-    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
-    // "java.home": "C:\\Program Files\\Java\\jdk1.8.0_261",
+    // "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
+    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_261",
     "explorer.confirmDelete": true,
     "shellformat.effectLanguages": [
         "shellscript",
@@ -133,21 +145,18 @@
             "italic": false
         }
     ],
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "sync.autoDownload": true,
     "sync.autoUpload": true,
     "sync.quietSync": true,
     "sync.gist": "00032af399f58d1545a725ea6a0bc96e",
     "window.zoomLevel": 0,
     "liveServer.settings.fullReload": true,
-    "editor.renameOnType": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
     "workbench.colorTheme": "Dracula",
     "vscodeGoogleTranslate.preferredLanguage": "English",
     "powermode.enabled": true,
-    "powermode.presets": "flames"
+    "powermode.presets": "flames",
+    "eslint.enable": true,
+    "eslint.format.enable": true
 }
