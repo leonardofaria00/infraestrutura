@@ -237,6 +237,8 @@ getWine() {
 }
 
 getVSCode() {
+# habilitando execução de comando no PowerShell: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# Referência: https://docs.microsoft.com/pt-br/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.1#managing-the-execution-policy-with-powershell
     cp -v settings.json ~/.config/Code/User/
 }
 
