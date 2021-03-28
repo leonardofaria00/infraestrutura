@@ -264,6 +264,10 @@ sudo apt-get update
 sudo apt-get install pcsx2
 }
 
+getInstallHyper-V(){
+ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+}
+
 restart() {
     getClean
     getUpdate
