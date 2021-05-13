@@ -18,11 +18,28 @@ getOS() {
     sleep 5s
 }
 
+getClean() {
+    echo ''
+    echo 'Limpando caches...'
+    sleep 2s
+    sudo apt -y autoremove
+    sudo apt autoclean
+    sudo apt remove
+    sudo apt clean
+    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/tmp/*
+    sudo du -sh /var/cache/apt
+    du -sh ~/.cache/thumbnails
+    echo ''
+    echo 'Tudo limpo!'
+}
+
 getUpdate() {
     echo ''
     echo 'Atualizando a máquina...'
     sleep 2s
-    sudo apt -y update && sudo apt -y upgrade && sudo apt -y autoremove
+    sudo apt -y update && sudo apt -y upgrade
+    getClean
 }
 
 getUtil() {
@@ -39,22 +56,6 @@ getColor() {
     sudo echo 'set number' >>/home/$USER/.vimrc
     sudo echo 'syntax enable' >>/home/$USER/.vimrc
     sudo echo 'force_color_prompt=yes' >>/home/$USER/.bashrc
-}
-
-getClean() {
-    echo ''
-    echo 'Limpando caches...'
-    sleep 2s
-    sudo apt -y autoremove
-    sudo apt autoclean
-    sudo apt remove
-    sudo apt clean
-    sudo rm -rf /var/lib/apt/lists/*
-    sudo rm -rf /var/tmp/*
-    sudo du -sh /var/cache/apt
-    du -sh ~/.cache/thumbnails
-    echo ''
-    echo 'Tudo limpo!'
 }
 
 getJDK() {
