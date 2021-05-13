@@ -51,6 +51,8 @@ getClean() {
     sudo apt clean
     sudo rm -rf /var/lib/apt/lists/*
     sudo rm -rf /var/tmp/*
+    sudo du -sh /var/cache/apt
+    du -sh ~/.cache/thumbnails
     echo ''
     echo 'Tudo limpo!'
 }
