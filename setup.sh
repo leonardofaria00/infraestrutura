@@ -228,6 +228,7 @@ getMySQL() {
     # FLUSH PRIVILEGES;
     # ALTER USER 'leonardo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
     # quit;
+    # create database name_database_server;
 }
 
 getWine() {
