@@ -28,8 +28,9 @@ getClean() {
     sudo apt clean
     sudo rm -rf /var/lib/apt/lists/*
     sudo rm -rf /var/tmp/*
-    sudo du -sh /var/cache/apt
-    du -sh ~/.cache/thumbnails
+    sudo rm -rf /tmp/*
+    sudo rm -rf /var/cache/apt/*
+    sudo rm -rf /run/apache2/* /tmp/apache2*
     echo ''
     echo 'Tudo limpo!'
 }
