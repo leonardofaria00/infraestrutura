@@ -1,4 +1,4 @@
-# Configurações para ambiente de desenvolvimento PHP no Ubuntu
+# Configurações para ambiente de desenvolvimento no Ubuntu
 
     Este script foi testado na distribuição do Ubuntu 20.04 LTS.
 
