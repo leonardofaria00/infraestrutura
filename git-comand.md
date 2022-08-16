@@ -1,8 +1,13 @@
 # Comand GIT
 
-All listed refs are deleted from the remote repository. This is the same as prefixing all refs with a colon.
+Deletar branch do repositório remoto
 ```bash
 git push origin --delete branchName
+```
+
+Deletar branch do repositório local
+```bash
+git branch -D branchName
 ```
 
 For every branch that is up to date or successfully pushed, add upstream (tracking) reference, used by argument-less git-pull[1] and other commands.
