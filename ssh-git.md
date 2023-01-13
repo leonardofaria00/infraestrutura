@@ -10,6 +10,8 @@ $ ssh-add ~/.ssh/id_rsa
 ### testing your SSH connection
 $ ssh -T git@github.com || ssh -T git@ssh.dev.azure.com
 
+Success if output: remote: Shell access is not supported.
+
 ## Change HTTPS URLs to SSH Connection
 $ git remote -v
 
