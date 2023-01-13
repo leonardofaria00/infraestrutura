@@ -7,8 +7,8 @@ $ eval "$(ssh-agent -s)"
 ### add ssh key to ssh-agent
 $ ssh-add ~/.ssh/id_rsa
 
-### testing your SSH connection
-$ ssh -T git@github.com || ssh -T git@ssh.dev.azure.com
+### testing your SSH connection Azure DevOps or GitHub
+$ ssh -T git@ssh.dev.azure.com || ssh -T git@github.com
 
 Success if output: remote: Shell access is not supported.
 
@@ -19,3 +19,5 @@ $ cat ~/.ssh/id_rsa.pub
 $ git remote -v
 
 $ git remote set-url origin ssh.path
+
+Ex: vscompany@vs-ssh.visualstudio.com:v3/company-name/project-name
