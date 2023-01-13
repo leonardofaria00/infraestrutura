@@ -12,4 +12,5 @@ $ ssh -T git@github.com || ssh -T git@ssh.dev.azure.com
 
 ## Change HTTPS URLs to SSH Connection
 $ git remote -v
-$ git remote set-url <remote name, e.g. origin> <new SSH URL>
+
+$ git remote set-url origin ssh.path
