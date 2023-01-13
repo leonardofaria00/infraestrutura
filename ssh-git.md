@@ -12,6 +12,9 @@ $ ssh -T git@github.com || ssh -T git@ssh.dev.azure.com
 
 Success if output: remote: Shell access is not supported.
 
+## Add your public key in repository Git
+$ cat ~/.ssh/id_rsa.pub
+
 ## Change HTTPS URLs to SSH Connection
 $ git remote -v
 
